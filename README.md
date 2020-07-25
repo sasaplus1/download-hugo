@@ -10,6 +10,11 @@ download [Hugo](https://gohugo.io/) binary
 $ npx github:sasaplus1/download-hugo 0.74.3 "$(npm bin)"
 ```
 
+```console
+$ "$(npm bin)/hugo" version
+Hugo Static Site Generator v0.74.3-DA0437B4/extended darwin/amd64 BuildDate: 2020-07-23T16:28:32Z
+```
+
 ## License
 
 The MIT license.
