@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: ${{ matrix.node }}
-      - run: npx github:${{ github.repository }} 0.74.3 "$(npm bin)"
+      - run: ./download-hugo 0.74.3 "$(npm bin)"
       - run: >-
           "$(npm bin)/hugo$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')" version
         shell: bash
