@@ -1,6 +1,19 @@
 {
+  "name": "download-hugo",
+  "description": "download Hugo binary",
+  "version": "1.0.0",
+  "author": "sasa+1 <sasaplus1@gmail.com>",
+  "bin": {
+    "download-hugo": "./download-hugo"
+  },
   "dependencies": {
     "bin-wrapper": "^4.1.0"
   },
-  "private": true
+  "license": "MIT",
+  "private": true,
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sasaplus1/download-hugo.git"
+  }
 }
