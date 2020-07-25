@@ -18,6 +18,8 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
+        experimental:
+          - false
         include:
           - os: windows-latest
             experimental: true
