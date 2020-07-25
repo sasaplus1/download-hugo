@@ -22,12 +22,15 @@ const bin = new BinWrapper({ skipCheck: true })
   .use(os.platform() === 'win32' ? 'hugo.exe' : 'hugo')
   .version(version);
 
-bin.run(['version']).then(function() {
-  const dir = path.dirname(bin.path());
+bin
+  .run(['version'])
+  .then(function () {
+    const dir = path.dirname(bin.path());
 
-  fs.unlinkSync(path.resolve(dir, 'LICENSE'));
-  fs.unlinkSync(path.resolve(dir, 'README.md'));
-}).catch(function(err) {
-  console.error(err);
-  process.exitCode = 1;
-});
+    fs.unlinkSync(path.resolve(dir, 'LICENSE'));
+    fs.unlinkSync(path.resolve(dir, 'README.md'));
+  })
+  .catch(function (err) {
+    console.error(err);
+    process.exitCode = 1;
+  });
