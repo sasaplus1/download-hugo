@@ -9,6 +9,10 @@
   "dependencies": {
     "bin-wrapper": "^4.1.0"
   },
+  "engines": {
+    "node": ">=12",
+    "yarn": ">=1.22"
+  },
   "license": "MIT",
   "private": true,
   "readmeFilename": "README.md",
