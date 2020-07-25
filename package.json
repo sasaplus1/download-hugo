@@ -9,11 +9,33 @@
   "dependencies": {
     "bin-wrapper": "^4.1.0"
   },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5"
+  },
   "engines": {
     "node": ">=12",
     "yarn": ">=1.22"
   },
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended-script",
+      "plugin:prettier/recommended"
+    ],
+    "root": true
+  },
   "license": "MIT",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
   "private": true,
   "readmeFilename": "README.md",
   "repository": {
