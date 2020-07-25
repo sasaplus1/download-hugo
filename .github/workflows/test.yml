@@ -1,0 +1,26 @@
+name: test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  execute:
+    name: execute
+    strategy:
+      matrix:
+        node:
+          - 12
+          - 14
+        os:
+          - windows-latest
+          - macos-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npx github:${{ github.repository }} 0.74.3 "$(npm bin)"
+      - run: "$(npm bin)/hugo$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')" version
