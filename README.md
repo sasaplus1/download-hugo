@@ -1,5 +1,7 @@
 # download-hugo
 
+[![test](https://github.com/sasaplus1/download-hugo/workflows/test/badge.svg)](https://github.com/sasaplus1/download-hugo/actions?query=workflow%3Atest)
+
 download [Hugo](https://gohugo.io/) binary
 
 ## How to use
