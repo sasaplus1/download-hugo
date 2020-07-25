@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+
+const BinWrapper = require('bin-wrapper');
+
+const [, , version, destination] = process.argv;
+
+const baseUrl = `https://github.com/gohugoio/hugo/releases/download/v${version}/`;
+
+const dest = path.resolve(destination);
+
+fs.mkdirSync(dest, { recursive: true });
+
+const bin = new BinWrapper({ skipCheck: true })
+  .src(`${baseUrl}hugo_extended_${version}_Linux-64bit.tar.gz`, 'linux', 'x64')
+  .src(`${baseUrl}hugo_extended_${version}_macOS-64bit.tar.gz`, 'darwin', 'x64')
+  .src(`${baseUrl}hugo_extended_${version}_Windows-64bit.zip`, 'win32', 'x64')
+  .dest(dest)
+  .use(os.platform() === 'win32' ? 'hugo.exe' : 'hugo')
+  .version(version);
+
+bin.run(['version']).then(function() {
+  const dir = path.dirname(bin.path());
+
+  fs.unlinkSync(path.resolve(dir, 'LICENSE'));
+  fs.unlinkSync(path.resolve(dir, 'README.md'));
+}).catch(function(err) {
+  console.error(err);
+  process.exitCode = 1;
+});
