@@ -34,6 +34,8 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: ./download-hugo 0.74.3 "$(npm bin)"
+      - run: ls -1 "$(npm bin)"
+        shell: bash
       - run: >-
           "$(npm bin)/hugo$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')" version
         shell: bash
