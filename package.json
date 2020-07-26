@@ -7,7 +7,7 @@
     "download-hugo": "./download-hugo"
   },
   "dependencies": {
-    "bin-wrapper": "^4.1.0"
+    "download": "^8.0.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
