@@ -48,6 +48,17 @@
   },
   "private": true,
   "readmeFilename": "README.md",
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":automergeAll",
+      ":label(renovate)",
+      ":preserveSemverRanges",
+      ":assignee(sasaplus1)",
+      ":timezone(Asia/Tokyo)",
+      "group:linters"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sasaplus1/download-hugo.git"
