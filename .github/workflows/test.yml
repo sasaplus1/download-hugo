@@ -34,7 +34,10 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: ./download-hugo 0.74.3 "$(npm bin)"
+        shell: bash
       - run: >-
           echo "::set-env name=extension::$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')"
+        shell: bash
       - run: >-
           "$(npm bin)/hugo${extension}" version
+        shell: bash
