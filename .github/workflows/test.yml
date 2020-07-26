@@ -17,6 +17,7 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
+          - windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -34,4 +35,6 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: ./download-hugo 0.74.3 "$(npm bin)"
       - run: >-
-          "$(npm bin)/hugo" version
+          echo "::set-env name=extension::$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')"
+      - run: >-
+          "$(npm bin)/hugo${extension}" version
