@@ -8,7 +8,6 @@ jobs:
   execute:
     name: execute
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
@@ -18,11 +17,6 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-        experimental:
-          - false
-        include:
-          - os: windows-latest
-            experimental: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -39,8 +33,5 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: ./download-hugo 0.74.3 "$(npm bin)"
-      - run: ls -1 "$(npm bin)"
-        shell: bash
       - run: >-
-          "$(npm bin)/hugo$(node -r os -p 'os.platform() === `win32` ? `.exe` : ``')" version
-        shell: bash
+          "$(npm bin)/hugo" version

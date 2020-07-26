@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
 const BinWrapper = require('bin-wrapper');
@@ -17,9 +16,8 @@ fs.mkdirSync(dest, { recursive: true });
 const bin = new BinWrapper({ skipCheck: true })
   .src(`${baseUrl}hugo_extended_${version}_Linux-64bit.tar.gz`, 'linux', 'x64')
   .src(`${baseUrl}hugo_extended_${version}_macOS-64bit.tar.gz`, 'darwin', 'x64')
-  .src(`${baseUrl}hugo_extended_${version}_Windows-64bit.zip`, 'win32', 'x64')
   .dest(dest)
-  .use(os.platform() === 'win32' ? 'hugo.exe' : 'hugo')
+  .use('hugo')
   .version(version);
 
 bin
