@@ -8,12 +8,12 @@ const download = require('download');
 
 const [, , version, destination] = process.argv;
 
-const baseUrl = `https://github.com/gohugoio/hugo/releases/download/v${version}/`;
+const baseUrl = `https://github.com/gohugoio/hugo/releases/download/v${version}`;
 
 const urlMap = {
-  darwin: `${baseUrl}hugo_extended_${version}_macOS-64bit.tar.gz`,
-  linux: `${baseUrl}hugo_extended_${version}_Linux-64bit.tar.gz`,
-  win32: `${baseUrl}hugo_extended_${version}_Windows-64bit.zip`
+  darwin: `${baseUrl}/hugo_extended_${version}_macOS-64bit.tar.gz`,
+  linux: `${baseUrl}/hugo_extended_${version}_Linux-64bit.tar.gz`,
+  win32: `${baseUrl}/hugo_extended_${version}_Windows-64bit.zip`
 };
 
 const dest = path.resolve(destination);
