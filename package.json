@@ -27,8 +27,7 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:node/recommended-script",
-      "plugin:prettier/recommended"
+      "plugin:node/recommended-script"
     ],
     "root": true
   },
@@ -39,7 +38,10 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "download-hugo": "eslint --cache"
+    "download-hugo": [
+      "eslint --cache",
+      "prettier --check"
+    ]
   },
   "prettier": {
     "singleQuote": true,
